@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="candidate_contact_detail")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class CandidateContactDetail implements Serializable{
 	
 	private static final long serialVersionUID = -3725309972567481456L;

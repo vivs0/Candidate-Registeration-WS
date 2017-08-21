@@ -4,5 +4,5 @@ import org.candidate.ws.models.Candidate;
 
 public interface IfaceNewRegisteration {
 	
-	public int Register(Candidate canidate);
+	public void Register(Candidate canidate);
 }

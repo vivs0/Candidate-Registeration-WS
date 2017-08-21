@@ -7,6 +7,7 @@ import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +16,9 @@ import javax.persistence.PostPersist;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+import org.hibernate.FetchMode;
+import org.hibernate.annotations.LazyToOne;
+import org.hibernate.annotations.LazyToOneOption;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
@@ -61,7 +65,7 @@ public class Candidate implements Serializable{
 
 	public Candidate(){};
 	public Candidate(String fullName, String fatherName, String motherName, String hscRollNo,
-			Date birthDate, String gender, CandidateDetail candidateDetail) {
+			Date birthDate, String gender) {
 		super();
 		FullName = fullName;
 		FatherName = fatherName;
@@ -69,7 +73,6 @@ public class Candidate implements Serializable{
 		HscRollNo = hscRollNo;
 		BirthDate = birthDate;
 		Gender = gender;
-		this.candidateDetail = candidateDetail;
 	}
 	public int getId() {
 		return Id;
@@ -228,11 +231,10 @@ public class Candidate implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return "CandidatePersonalDetail [Id=" + Id + ", FullName=" + FullName + ", FatherName=" + FatherName
-				+ ", MotherName=" + MotherName + ", HscRollNo=" + HscRollNo + ", BirthDate=" + BirthDate + ", Gender="
-				+ Gender + ", candidateDetail=" + candidateDetail +  "]";
+		return "Candidate [Id=" + Id + ", FullName=" + FullName + ", FatherName=" + FatherName + ", MotherName="
+				+ MotherName + ", HscRollNo=" + HscRollNo + ", BirthDate=" + BirthDate + ", Gender=" + Gender
+				+ ", candidateDetail=" + candidateDetail + ", candidateDisabilityDetail=" + candidateDisabilityDetail
+				+ ", candidateContactDetail=" + candidateContactDetail + "]";
 	}
-
-
 	
 }
